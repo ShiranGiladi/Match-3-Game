@@ -103,6 +103,7 @@ public class Board : MonoBehaviour
                     DestroyMatchesAt(i, j);
             }
         }
+        findMatches.currMatches.Clear();
         StartCoroutine(DecreaseRowCo());
     }
 

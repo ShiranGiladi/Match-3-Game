@@ -25,12 +25,6 @@ public class Dot : MonoBehaviour
     {
         board = FindFirstObjectByType<Board>();
         findMatches = FindFirstObjectByType<FindMatches>();
-        //targetX = (int)transform.position.x;
-        //targetY = (int)transform.position.y;
-        //column = targetX;
-        //row = targetY;
-        //prevColumn = column;
-        //prevRow = row;
     }
 
     // Update is called once per frame
@@ -98,7 +92,12 @@ public class Dot : MonoBehaviour
                 board.DestroyMatches();
             }
             otherDot = null;
-        } 
+        }
+        else
+        {
+            // If there was no other dot, reset the state
+            board.currState = GameState.move;
+        }
     }
 
     private void OnMouseDown()
@@ -159,39 +158,4 @@ public class Dot : MonoBehaviour
 
         StartCoroutine(CheckMoveCo());
     }
-
-    //void FindMatches()
-    //{
-    //    // Horizontal matches
-    //    if(column > 0 && column < board.width - 1)
-    //    {
-    //        GameObject leftDot1 = board.dots[column - 1, row];
-    //        GameObject rightDot1 = board.dots[column + 1, row];
-    //        if(leftDot1 != null && rightDot1 != null)
-    //        {
-    //            if(leftDot1.tag == this.gameObject.tag && rightDot1.tag == this.gameObject.tag)
-    //            {
-    //                leftDot1.GetComponent<Dot>().isMatched = true;
-    //                rightDot1.GetComponent<Dot>().isMatched = true;
-    //                isMatched = true;
-    //            }
-    //        }
-    //    }
-
-    //    // Vertical matches
-    //    if(row > 0 && row < board.height - 1)
-    //    {
-    //        GameObject upDot1 = board.dots[column, row + 1];
-    //        GameObject downDot1 = board.dots[column, row - 1];
-    //        if(upDot1 != null && downDot1 != null)
-    //        {
-    //            if(upDot1.tag == this.gameObject.tag && downDot1.tag == this.gameObject.tag)
-    //            {
-    //                upDot1.GetComponent<Dot>().isMatched = true;
-    //                downDot1.GetComponent<Dot>().isMatched = true;
-    //                isMatched = true;
-    //            }
-    //        }
-    //    }
-    //}
 }
