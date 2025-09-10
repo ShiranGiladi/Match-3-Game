@@ -10,6 +10,12 @@ TagManager:
   - Green Dot
   - Red Dot
   - Yellow Dot
+  - Cheese Dot
+  - Onion Dot
+  - Lettuce Dot
+  - Tomato Dot
+  - Sausage Dot
+  - Burger Dot
   layers:
   - Default
   - TransparentFX
