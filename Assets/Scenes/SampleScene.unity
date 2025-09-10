@@ -580,6 +580,7 @@ MonoBehaviour:
   - {fileID: 1316190040741991596, guid: 8c866d27e1d60d24c99e67f18310b2ad, type: 3}
   - {fileID: 303080720371451666, guid: 1c63429eaf8854446842a02dafa62406, type: 3}
   streakValue: 1
+  refillDeley: 0.5
 --- !u!4 &1085419174
 Transform:
   m_ObjectHideFlags: 0
