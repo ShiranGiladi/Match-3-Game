@@ -23,6 +23,7 @@ public class Board : MonoBehaviour
     private int basePieceValue = 20;
     public int streakValue = 1;
     private ScoreManager scoreManager;
+    public float refillDeley = 0.5f;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -129,7 +130,7 @@ public class Board : MonoBehaviour
             }
             nullCount = 0;
         }
-        yield return new WaitForSeconds(.4f);
+        yield return new WaitForSeconds(refillDeley * 0.5f);
         StartCoroutine(FillBoardCo());
     }
 
@@ -143,6 +144,15 @@ public class Board : MonoBehaviour
                 {
                     Vector2 position = new Vector2(i, j + offset);
                     int dotToUse = Random.Range(0, dotsPrefab.Length);
+
+                    int maxIterations = 0; // To prevent infinite loop
+                    while (MatchesAt(i, j, dotsPrefab[dotToUse]) && maxIterations < 100)
+                    {
+                        dotToUse = Random.Range(0, dotsPrefab.Length);
+                        maxIterations++;
+                    }
+                    maxIterations = 0;
+
                     GameObject newPiece = Instantiate(dotsPrefab[dotToUse], position, Quaternion.identity);
                     // adjust the correct position ('undo the offset')
                     newPiece.GetComponent<Dot>().row = j;
@@ -172,15 +182,15 @@ public class Board : MonoBehaviour
     private IEnumerator FillBoardCo()
     {
         RefillBoard();
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(refillDeley);
 
         while(MathcesOnBoard())
         {
             streakValue++;
-            yield return new WaitForSeconds(.5f);
             DestroyMatches();
+            yield return new WaitForSeconds(2 * refillDeley);
         }
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(refillDeley);
 
         if(IsDeadLocked())
         {
