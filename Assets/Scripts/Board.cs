@@ -20,11 +20,15 @@ public class Board : MonoBehaviour
     private BackgroundTile[,] tiles;
     public GameObject[,] dots;
     private FindMatches findMatches;
+    private int basePieceValue = 20;
+    public int streakValue = 1;
+    private ScoreManager scoreManager;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         findMatches = FindFirstObjectByType<FindMatches>();
+        scoreManager = FindFirstObjectByType<ScoreManager>();
         tiles = new BackgroundTile[width, height];
         dots = new GameObject[width, height];
         SetUp();
@@ -90,6 +94,7 @@ public class Board : MonoBehaviour
         {
             findMatches.currMatches.Remove(dots[column, row]);
             Destroy(dots[column, row]);
+            scoreManager.IncreaseScore(basePieceValue * streakValue);
             dots[column, row] = null;
         }
     }
@@ -171,6 +176,7 @@ public class Board : MonoBehaviour
 
         while(MathcesOnBoard())
         {
+            streakValue++;
             yield return new WaitForSeconds(.5f);
             DestroyMatches();
         }
@@ -181,6 +187,7 @@ public class Board : MonoBehaviour
             ShuffleBoard();
         }
         currState = GameState.move;
+        streakValue = 1;
     }
 
     private void SwitchPieces(int column, int row, Vector2 direction)
