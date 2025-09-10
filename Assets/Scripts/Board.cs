@@ -23,6 +23,7 @@ public class Board : MonoBehaviour
     private int basePieceValue = 20;
     public int streakValue = 1;
     private ScoreManager scoreManager;
+    private GoalManager goalManager;
     public float refillDeley = 0.5f;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -30,6 +31,7 @@ public class Board : MonoBehaviour
     {
         findMatches = FindFirstObjectByType<FindMatches>();
         scoreManager = FindFirstObjectByType<ScoreManager>();
+        goalManager = FindFirstObjectByType<GoalManager>();
         tiles = new BackgroundTile[width, height];
         dots = new GameObject[width, height];
         SetUp();
@@ -94,6 +96,12 @@ public class Board : MonoBehaviour
         if (dots[column, row].GetComponent<Dot>().isMatched)
         {
             findMatches.currMatches.Remove(dots[column, row]);
+
+            if(goalManager != null)
+            {
+                goalManager.CompareGoal(dots[column, row].tag.ToString());
+                goalManager.UpdateGoals();
+            }
             Destroy(dots[column, row]);
             scoreManager.IncreaseScore(basePieceValue * streakValue);
             dots[column, row] = null;
