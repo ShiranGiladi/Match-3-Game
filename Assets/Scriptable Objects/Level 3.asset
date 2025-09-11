@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41907a32ef484bb458a8f79a4ae536e2, type: 3}
+  m_Name: Level 3
+  m_EditorClassIdentifier: 
+  width: 4
+  height: 4
+  dotsPrefab:
+  - {fileID: 860428448532185626, guid: d544c6ec36d712847bf0c911205ab4cf, type: 3}
+  - {fileID: 1316190040741991596, guid: 8c866d27e1d60d24c99e67f18310b2ad, type: 3}
+  - {fileID: 3924688430037414606, guid: 37775474db529c44899dd957c37739bd, type: 3}
+  - {fileID: 7646140563591717672, guid: b34afe73dc8d6d94b86766fd617aefa5, type: 3}
+  scoreGoals: 64000000
+  endLevelRequirements:
+    levelType: 0
+    counterValue: 15
+  levelGoals:
+  - numberNeeded: 5
+    numberCollected: 0
+    goalSprite: {fileID: -4808505331019995094, guid: d1acc36f4e78c4d8d8ad8b81347a1f72, type: 3}
+    matchValue: Sausage Dot

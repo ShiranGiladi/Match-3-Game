@@ -6,26 +6,53 @@ using static UnityEngine.Rendering.DebugUI.Table;
 
 public enum GameState {
     wait,
-    move
+    move,
+    win,
+    lose,
+    pause
 }
 
 public class Board : MonoBehaviour
 {
+    [Header("Scriptable Object Stuff")]
+    public World world;
+    public int level;
+
     public GameState currState = GameState.move;
+
+    [Header("Board Dimensions")]
     public int width;
     public int height;
     public int offset; // For the pieces to slide into the screen
+
+    [Header("Prefabs")]
     public GameObject tilePrefab;
     public GameObject[] dotsPrefab;
     private BackgroundTile[,] tiles;
     public GameObject[,] dots;
+
     private FindMatches findMatches;
     private int basePieceValue = 20;
     public int streakValue = 1;
+    public int[] scoreGoals;
     private ScoreManager scoreManager;
     private GoalManager goalManager;
     public float refillDeley = 0.5f;
-    
+
+    private void Awake()
+    {
+        if(world != null)
+        {
+            if (world.levels[level] != null) // Check if that level exists
+            {
+                width = world.levels[level].width;
+                height = world.levels[level].height;
+                dotsPrefab = world.levels[level].dotsPrefab;
+                scoreGoals = world.levels[level].scoreGoals;
+            }
+        }
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -35,6 +62,7 @@ public class Board : MonoBehaviour
         tiles = new BackgroundTile[width, height];
         dots = new GameObject[width, height];
         SetUp();
+        currState = GameState.pause;
     }
 
     // Update is called once per frame

@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Dot : MonoBehaviour
 {
+    [Header("Board Variables")]
     public int column;
     public int row;
     public int prevColumn;
@@ -17,6 +18,9 @@ public class Dot : MonoBehaviour
     private Vector2 startTouchPosition;
     private Vector2 endTouchPosition;
     private Vector2 tempPosition; // Hold the target position that the dot should move to
+    private EndGameManager endGameManager;
+
+    [Header("Swipe Stuff")]
     public float swipeAngle = 0;
     public float swipeResist = 1f;
 
@@ -25,6 +29,7 @@ public class Dot : MonoBehaviour
     {
         board = FindFirstObjectByType<Board>();
         findMatches = FindFirstObjectByType<FindMatches>();
+        endGameManager = FindFirstObjectByType<EndGameManager>();
     }
 
     // Update is called once per frame
@@ -88,6 +93,13 @@ public class Dot : MonoBehaviour
                 yield return new WaitForSeconds(.3f);
                 board.currState = GameState.move;
             } else { // we have at least one match
+                if(endGameManager != null)
+                {
+                    if(endGameManager.requirements.levelType == LevelType.Moves)
+                    {
+                        endGameManager.DecreaseCounterValue();
+                    }
+                }
                 board.DestroyMatches();
             }
             otherDot = null;

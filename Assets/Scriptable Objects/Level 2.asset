@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41907a32ef484bb458a8f79a4ae536e2, type: 3}
+  m_Name: Level 2
+  m_EditorClassIdentifier: 
+  width: 6
+  height: 8
+  dotsPrefab:
+  - {fileID: 303080720371451666, guid: 1c63429eaf8854446842a02dafa62406, type: 3}
+  - {fileID: 7646140563591717672, guid: b34afe73dc8d6d94b86766fd617aefa5, type: 3}
+  - {fileID: 3924688430037414606, guid: 37775474db529c44899dd957c37739bd, type: 3}
+  - {fileID: 1316190040741991596, guid: 8c866d27e1d60d24c99e67f18310b2ad, type: 3}
+  - {fileID: 860428448532185626, guid: d544c6ec36d712847bf0c911205ab4cf, type: 3}
+  scoreGoals: f4010000e8030000dc050000
+  endLevelRequirements:
+    levelType: 1
+    counterValue: 90
+  levelGoals:
+  - numberNeeded: 15
+    numberCollected: 0
+    goalSprite: {fileID: -3962807554240710951, guid: 266e6d1c262e447fd8ca133e395fda7d, type: 3}
+    matchValue: Tomato Dot
+  - numberNeeded: 15
+    numberCollected: 0
+    goalSprite: {fileID: -5768364531109799046, guid: 404c7c8416ee4453a83c0faa2690d434, type: 3}
+    matchValue: Onion Dot

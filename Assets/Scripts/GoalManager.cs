@@ -17,11 +17,27 @@ public class GoalManager : MonoBehaviour
     public List<GoalPanel> currGoals = new List<GoalPanel>();
     public GameObject goalPrefab;
     public GameObject goalLevelParent;
+    private Board board;
+    private EndGameManager endGameManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        board = FindFirstObjectByType<Board>();
+        endGameManager = FindFirstObjectByType<EndGameManager>();
+        GetGoals();
         SetupGoals();
+    }
+
+    void GetGoals()
+    {
+        if(board != null)
+        {
+            if(board.world != null && board.world.levels[board.level] != null)
+            {
+                levelGoals = board.world.levels[board.level].levelGoals;
+            }
+        }
     }
 
     void SetupGoals()
@@ -54,6 +70,10 @@ public class GoalManager : MonoBehaviour
 
         if(goalsCompleted >= levelGoals.Length)
         {
+            if(endGameManager != null)
+            {
+                endGameManager.WinGame();
+            }
             Debug.Log("You win!");
         }
     }
