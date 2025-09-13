@@ -27,6 +27,8 @@ public class EndGameManager : MonoBehaviour
     private Board board;
     private float timerSeconds;
 
+    public Dish currentDish;  
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -37,9 +39,9 @@ public class EndGameManager : MonoBehaviour
 
     void SetGameType()
     {
-        if(board != null)
+        if (board != null)
         {
-            if (board.world.levels[board.level]  != null)
+            if (board.world.levels[board.level] != null)
             {
                 requirements = board.world.levels[board.level].endLevelRequirements;
             }
@@ -49,10 +51,10 @@ public class EndGameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (requirements.levelType == LevelType.Time && currCounterValue > 0) 
+        if (requirements.levelType == LevelType.Time && currCounterValue > 0)
         {
             timerSeconds -= Time.deltaTime;
-            if (timerSeconds <= 0) 
+            if (timerSeconds <= 0)
             {
                 DecreaseCounterValue();
                 timerSeconds = 1;
@@ -63,11 +65,13 @@ public class EndGameManager : MonoBehaviour
     void SetupLevel()
     {
         currCounterValue = requirements.counterValue;
-        if(requirements.levelType == LevelType.Moves)
+        if (requirements.levelType == LevelType.Moves)
         {
             movesLabel.SetActive(true);
             timeLabel.SetActive(false);
-        } else {
+        }
+        else
+        {
             timerSeconds = 1;
             movesLabel.SetActive(false);
             timeLabel.SetActive(true);
@@ -95,6 +99,10 @@ public class EndGameManager : MonoBehaviour
         board.currState = GameState.win;
         currCounterValue = 0;
         counter.text = "" + currCounterValue;
+        if (currentDish != null)
+        {
+            UIManager.Instance.ShowDishPanel(currentDish);  // Shows the dish 
+        }
     }
 
     public void LoseGame()
