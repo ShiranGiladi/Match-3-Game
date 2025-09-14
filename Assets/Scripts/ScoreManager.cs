@@ -10,17 +10,17 @@ public class ScoreManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        EventManager.onMatchMade += IncreaseScore;
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnDestroy()
     {
-        scoreText.text = score.ToString();
+        EventManager.onMatchMade -= IncreaseScore;
     }
-
     public void IncreaseScore(int amountToIncrease)
     {
         score += amountToIncrease;
+        scoreText.text = score.ToString();
     }
+
 }
