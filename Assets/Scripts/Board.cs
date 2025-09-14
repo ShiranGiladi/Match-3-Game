@@ -41,6 +41,11 @@ public class Board : MonoBehaviour
 
     private void Awake()
     {
+        if(PlayerPrefs.HasKey("Current Level"))
+        {
+            level = PlayerPrefs.GetInt("Current Level");
+        }
+
         if(world != null)
         {
             if (world.levels[level] != null) // Check if that level exists
