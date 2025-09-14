@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class BackToMain : MonoBehaviour
+public class BackToMainMenu : MonoBehaviour
 {
     public string sceneToLoad;
 

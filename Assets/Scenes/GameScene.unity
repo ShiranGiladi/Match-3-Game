@@ -473,7 +473,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 364981772}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1438967779}
+        m_TargetAssemblyTypeName: BackToMainMenu, Assembly-CSharp
+        m_MethodName: OK
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &364981772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2057,6 +2069,7 @@ MonoBehaviour:
   dishPanel: {fileID: 1261034730}
   dishImage: {fileID: 2089276904}
   dishNameTMP: {fileID: 622231624}
+  events: {fileID: 0}
 --- !u!1 &1020479749
 GameObject:
   m_ObjectHideFlags: 0
@@ -2773,7 +2786,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1317430771}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1438967779}
+        m_TargetAssemblyTypeName: BackToMainMenu, Assembly-CSharp
+        m_MethodName: OK
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1317430771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2822,6 +2847,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1438967777}
   - component: {fileID: 1438967778}
+  - component: {fileID: 1438967779}
   m_Layer: 0
   m_Name: EndGameManager
   m_TagString: Untagged
@@ -2866,6 +2892,19 @@ MonoBehaviour:
     counterValue: 5
   currCounterValue: 0
   currentDish: {fileID: 0}
+--- !u!114 &1438967779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438967776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94fe4cbe0eee9ce4abe5c84050ca919d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToLoad: MainMenu
 --- !u!1 &1484800193
 GameObject:
   m_ObjectHideFlags: 0
