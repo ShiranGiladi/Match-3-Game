@@ -15,10 +15,10 @@ MonoBehaviour:
   width: 7
   height: 7
   dotsPrefab:
-  - {fileID: 860428448532185626, guid: d544c6ec36d712847bf0c911205ab4cf, type: 3}
-  - {fileID: 3924688430037414606, guid: 37775474db529c44899dd957c37739bd, type: 3}
-  - {fileID: 7646140563591717672, guid: b34afe73dc8d6d94b86766fd617aefa5, type: 3}
-  - {fileID: 303080720371451666, guid: 1c63429eaf8854446842a02dafa62406, type: 3}
+  - {fileID: 3924688430037414606, guid: 383fe2f6419064039963b8d99460f0c9, type: 3}
+  - {fileID: 860428448532185626, guid: 9fa7134d034344a2fb1c3ea3131ee7eb, type: 3}
+  - {fileID: 303080720371451666, guid: f3f00036970b64e70a25006f3211ed61, type: 3}
+  - {fileID: 7646140563591717672, guid: b812b70a31c134f528d2fd713228b48f, type: 3}
   scoreGoals: 640000009001000058020000
   endLevelRequirements:
     levelType: 0
