@@ -27,11 +27,12 @@ public class GameData : MonoBehaviour
         } else {
             Destroy(this.gameObject);
         }
+        Load();
     }
 
     void Start()
     {
-        Load();
+        
     }
 
     public void Save()
@@ -39,7 +40,7 @@ public class GameData : MonoBehaviour
         // Create a binary formatter which can read binart files
         BinaryFormatter formatter = new BinaryFormatter();
         // Create a route fronm the program to the file
-        FileStream file = File.Open(Application.persistentDataPath + "/player.data", FileMode.Open);
+        FileStream file = File.Open(Application.persistentDataPath + "/player.data", FileMode.Create);
         // Create a copy of save data
         SaveData data = new SaveData();
         data = saveData;

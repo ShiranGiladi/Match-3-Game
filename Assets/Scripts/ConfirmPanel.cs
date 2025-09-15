@@ -1,25 +1,49 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class ConfirmPanel : MonoBehaviour
 {
+    [Header("Level Information")]
     public string levelToLoad;
-    public Image[] stars;
     public int level;
+    private GameData gameData;
+    private int starsActive;
+    private int highScore;
+
+    [Header("Level UI")]
+    public Image[] stars;
+    public TextMeshProUGUI highScoreText;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        gameData = FindFirstObjectByType<GameData>();
+        LoadData();
         ActivateStars();
+        SetText();
+    }
+
+    void LoadData()
+    {
+        if(gameData != null)
+        {
+            starsActive = gameData.saveData.starts[level - 1];
+            highScore = gameData.saveData.highScores[level - 1];
+        }
+    }
+
+    void SetText()
+    {
+        highScoreText.text = highScore.ToString();
     }
 
     void ActivateStars()
     {
-        // ***************** CHANGE THAT METHOD AFTER CREATING THE BINARY FILE !!!!!!!!!!!!! *****************
-        for (int i = 0; i < stars.Length; i++)
+        for (int i = 0; i < starsActive; i++)
         {
-            stars[i].enabled = false;
+            stars[i].enabled = true;
         }
     }
 

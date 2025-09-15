@@ -10,28 +10,51 @@ public class LevelButton : MonoBehaviour
     public Sprite lockedSprite;
     private Image buttonImage;
     private Button myButton;
+    private int starActive;
 
+    [Header("Level UI")]
     public Image[] stars;
     public TextMeshProUGUI levelText;
     public int level;
     public GameObject confirmPanel;
 
+    private GameData gameData;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        gameData = FindFirstObjectByType<GameData>();
         buttonImage = GetComponent<Image>();
         myButton = GetComponent<Button>();
+        LoadData();
         ActivateStars();
         ShowLevel();
         DecideSprite();
     }
 
+    void LoadData()
+    {
+        if(gameData != null)
+        {
+            // Chech whether the level is active
+            if (gameData.saveData.isActive[level - 1])
+            {
+                isActive = true;
+            } else
+            {
+                isActive = false;
+            }
+
+            // Load the stars amount
+            starActive = gameData.saveData.starts[level - 1];
+        }
+    }
+
     void ActivateStars()
     {
-        // ***************** CHANGE THAT METHOD AFTER CREATING THE BINARY FILE !!!!!!!!!!!!! *****************
-        for (int i=0; i<stars.Length;i++)
+        for (int i=0; i<starActive;i++)
         {
-            stars[i].enabled = false;
+            stars[i].enabled = true;
         }
     }
 
