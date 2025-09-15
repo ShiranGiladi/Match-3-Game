@@ -39,14 +39,16 @@ public class Board : MonoBehaviour
     private GoalManager goalManager;
     public float refillDeley = 0.5f;
 
+    private SoundManager soundManager;
+
     private void Awake()
     {
-        if(PlayerPrefs.HasKey("Current Level"))
+        if (PlayerPrefs.HasKey("Current Level"))
         {
             level = PlayerPrefs.GetInt("Current Level");
         }
 
-        if(world != null)
+        if (world != null)
         {
             if (world.levels[level] != null) // Check if that level exists
             {
@@ -61,6 +63,8 @@ public class Board : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // SoundManager.Instance.PlayRandomDestroyNoise();
+        soundManager = FindFirstObjectByType<SoundManager>();
         findMatches = FindFirstObjectByType<FindMatches>();
         scoreManager = FindFirstObjectByType<ScoreManager>();
         goalManager = FindFirstObjectByType<GoalManager>();
@@ -130,7 +134,7 @@ public class Board : MonoBehaviour
         {
             findMatches.currMatches.Remove(dots[column, row]);
 
-            if(goalManager != null)
+            if (goalManager != null)
             {
                 goalManager.CompareGoal(dots[column, row].tag.ToString());
                 goalManager.UpdateGoals();
@@ -138,6 +142,11 @@ public class Board : MonoBehaviour
             Destroy(dots[column, row]);
             scoreManager.IncreaseScore(basePieceValue * streakValue);
             dots[column, row] = null;
+        }
+        // Does the sound manager exist?
+        if (soundManager != null)
+        {
+            soundManager.PlayRandomDestroyNoise();
         }
     }
 
