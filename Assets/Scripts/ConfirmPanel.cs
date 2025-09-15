@@ -16,9 +16,9 @@ public class ConfirmPanel : MonoBehaviour
     public Image[] stars;
     public TextMeshProUGUI highScoreText;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void OnEnable()
     {
+        Debug.Log("onEnavle function");
         gameData = FindFirstObjectByType<GameData>();
         LoadData();
         ActivateStars();
