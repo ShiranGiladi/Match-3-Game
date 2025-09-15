@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Rendering.InspectorCurveEditor;
 
 public enum LevelType
 {
@@ -21,11 +22,17 @@ public class EndGameManager : MonoBehaviour
     public GameObject timeLabel;
     public GameObject youWinPanel;
     public GameObject tryAgainPanel;
+    public GameObject statsPanel;
     public TextMeshProUGUI counter;
     public EndLevelRequirements requirements;
     public int currCounterValue;
     private Board board;
+    private ScoreManager scoreManager;
     private float timerSeconds;
+
+    [Header("Level UI")]
+    public Image[] stars;
+    public TextMeshProUGUI scoreText;
 
     public Dish currentDish;  
 
@@ -33,6 +40,7 @@ public class EndGameManager : MonoBehaviour
     void Start()
     {
         board = FindFirstObjectByType<Board>();
+        scoreManager = FindFirstObjectByType<ScoreManager>();
         SetGameType();
         SetupLevel();
     }
@@ -95,6 +103,7 @@ public class EndGameManager : MonoBehaviour
 
     public void WinGame()
     {
+        SetStatsPanel();
         youWinPanel.SetActive(true);
         board.currState = GameState.win;
         currCounterValue = 0;
@@ -107,10 +116,27 @@ public class EndGameManager : MonoBehaviour
 
     public void LoseGame()
     {
+        SetStatsPanel();
         tryAgainPanel.SetActive(true);
         board.currState = GameState.lose;
         Debug.Log("You Lose!!");
         currCounterValue = 0;
         counter.text = "" + currCounterValue;
+    }
+
+    public void SetStatsPanel()
+    {
+        statsPanel.SetActive(true);
+        scoreText.text = board.currState == GameState.win ? scoreManager.score.ToString() : "0";
+        for (int i = 0; i < board.scoreGoals.Length; i++)
+        {
+            if (scoreManager.score >= board.scoreGoals[i])
+            {
+                stars[i].enabled = true;
+            }
+            else {
+                break;
+            }
+        }
     }
 }
