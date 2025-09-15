@@ -23,15 +23,15 @@ public class ScoreManager : MonoBehaviour
     }
     public void IncreaseScore(int amountToIncrease)
     {
-        if(gameData != null)
-        {
-            int highScore = gameData.saveData.highScores[board.level];
-            if(highScore > score)
-            {
-                gameData.saveData.highScores[board.level] = score;
-            }
-            gameData.Save();
-        }
+        //if(gameData != null)
+        //{
+        //    int highScore = gameData.saveData.highScores[board.level];
+        //    if(highScore > score)
+        //    {
+        //        gameData.saveData.highScores[board.level] = score;
+        //    }
+        //    gameData.Save();
+        //}
 
         score += amountToIncrease;
         scoreText.text = score.ToString();

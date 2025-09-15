@@ -27,7 +27,13 @@ public class ConfirmPanel : MonoBehaviour
 
     void LoadData()
     {
-        if(gameData != null)
+        // Enable all stars
+        for (int i = 0; i < 3; i++)
+        {
+            stars[i].enabled = false;
+        }
+
+        if (gameData != null)
         {
             starsActive = gameData.saveData.starts[level - 1];
             highScore = gameData.saveData.highScores[level - 1];
