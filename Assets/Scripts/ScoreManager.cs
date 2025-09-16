@@ -21,7 +21,7 @@ public class ScoreManager : MonoBehaviour
     {
         EventManager.onMatchMade -= IncreaseScore;
     }
-    public void IncreaseScore(int amountToIncrease)
+    public void IncreaseScore(MatchEventData eventData)
     {
         //if(gameData != null)
         //{
@@ -33,7 +33,22 @@ public class ScoreManager : MonoBehaviour
         //    gameData.Save();
         //}
 
-        score += amountToIncrease;
+        score += eventData.matchLength;
+        scoreText.text = score.ToString();
+    }
+        public void IncreaseScore(int Score)
+    {
+        //if(gameData != null)
+        //{
+        //    int highScore = gameData.saveData.highScores[board.level];
+        //    if(highScore > score)
+        //    {
+        //        gameData.saveData.highScores[board.level] = score;
+        //    }
+        //    gameData.Save();
+        //}
+
+        score += score;
         scoreText.text = score.ToString();
     }
 

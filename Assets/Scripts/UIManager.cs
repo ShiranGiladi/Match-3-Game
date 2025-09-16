@@ -49,7 +49,7 @@ public class UIManager : MonoBehaviour
             SceneManager.LoadScene("MainMenu");  // Gets back to the main menu or end scene
     }
 
-    public void OnMatchMade(int MatchSize)
+    public void OnMatchMade(MatchEventData eventData)
     {
         
     }

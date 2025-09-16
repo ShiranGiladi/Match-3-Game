@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.Rendering.DebugUI.Table;
 
-public enum GameState {
+public enum GameState
+{
     wait,
     move,
     win,
@@ -77,14 +78,14 @@ public class Board : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void SetUp()
     {
-        for(int i=0; i<width; i++)
+        for (int i = 0; i < width; i++)
         {
-            for(int j=0; j<height; j++)
+            for (int j = 0; j < height; j++)
             {
                 Vector2 position = new Vector2(i, j + offset);
                 GameObject backgroundTile = Instantiate(tilePrefab, position, Quaternion.identity) as GameObject;
@@ -109,15 +110,15 @@ public class Board : MonoBehaviour
                 dot.name = "(" + i + "," + j + ")";
 
                 dots[i, j] = dot;
-            } 
+            }
         }
     }
 
     private bool MatchesAt(int column, int row, GameObject piece)
-    {   
-        if(column > 1)
+    {
+        if (column > 1)
         {
-            if (dots[column - 1, row].tag == piece.tag && dots[column - 2, row].tag == piece.tag) 
+            if (dots[column - 1, row].tag == piece.tag && dots[column - 2, row].tag == piece.tag)
                 return true;
         }
         if (row > 1)
@@ -130,8 +131,7 @@ public class Board : MonoBehaviour
 
     private void DestroyMatchesAt(int column, int row)
     {
-        if (dots[column, row].GetComponent<Dot>().isMatched)
-        {
+
             findMatches.currMatches.Remove(dots[column, row]);
 
             if (goalManager != null)
@@ -142,24 +142,32 @@ public class Board : MonoBehaviour
             Destroy(dots[column, row]);
             scoreManager.IncreaseScore(basePieceValue * streakValue);
             dots[column, row] = null;
-        }
-        // Does the sound manager exist?
-        if (soundManager != null)
-        {
-            soundManager.PlayRandomDestroyNoise();
-        }
+
+
     }
 
     public void DestroyMatches()
     {
-        for(int i=0; i<width; i++)
+        string tag = "";
+        for (int i = 0; i < width; i++)
         {
-            for(int j=0; j<height; j++)
+            for (int j = 0; j < height; j++)
             {
                 if (dots[i, j] != null)
-                    DestroyMatchesAt(i, j);
+                {
+                    if (dots[i, j].GetComponent<Dot>().isMatched == true)
+                    {
+                        if (tag == "")
+                            tag = dots[i, j].tag.ToString();
+                        DestroyMatchesAt(i, j);
+                    }
+
+
+
+                }
             }
         }
+        EventManager.MatchMade(new(3, tag));
         findMatches.currMatches.Clear();
         StartCoroutine(DecreaseRowCo());
     }
@@ -171,9 +179,12 @@ public class Board : MonoBehaviour
         {
             for (int j = 0; j < height; j++)
             {
-                if(dots[i, j] == null) {
+                if (dots[i, j] == null)
+                {
                     nullCount++;
-                } else if(nullCount > 0) { // decrease the row in the amount of null dots beneath
+                }
+                else if (nullCount > 0)
+                { // decrease the row in the amount of null dots beneath
                     dots[i, j].GetComponent<Dot>().row -= nullCount;
                     dots[i, j] = null;
                 }
@@ -219,8 +230,10 @@ public class Board : MonoBehaviour
         {
             for (int j = 0; j < height; j++)
             {
-                if (dots[i, j] != null) {
-                    if(dots[i, j].GetComponent<Dot>().isMatched) {
+                if (dots[i, j] != null)
+                {
+                    if (dots[i, j].GetComponent<Dot>().isMatched)
+                    {
                         return true;
                     }
                 }
@@ -234,7 +247,7 @@ public class Board : MonoBehaviour
         RefillBoard();
         yield return new WaitForSeconds(refillDeley);
 
-        while(MathcesOnBoard())
+        while (MathcesOnBoard())
         {
             streakValue++;
             DestroyMatches();
@@ -242,7 +255,7 @@ public class Board : MonoBehaviour
         }
         yield return new WaitForSeconds(refillDeley);
 
-        if(IsDeadLocked())
+        if (IsDeadLocked())
         {
             ShuffleBoard();
         }
@@ -266,21 +279,21 @@ public class Board : MonoBehaviour
         {
             for (int j = 0; j < height; j++)
             {
-                if(dots[i, j] != null)
+                if (dots[i, j] != null)
                 {
                     // Check if we have two pieces on the right side
-                    if(i < width - 2)
+                    if (i < width - 2)
                     {
                         if (dots[i + 1, j] != null && dots[i + 2, j] != null)
                         {
-                            if(dots[i + 1, j].tag == dots[i, j].tag && dots[i + 2, j].tag == dots[i, j].tag)
+                            if (dots[i + 1, j].tag == dots[i, j].tag && dots[i + 2, j].tag == dots[i, j].tag)
                             {
                                 return true;
                             }
                         }
                     }
                     // Check if we have two pieces above (up) 
-                    if(j < height - 2)
+                    if (j < height - 2)
                     {
                         if (dots[i, j + 1] != null && dots[i, j + 2] != null)
                         {
@@ -299,7 +312,7 @@ public class Board : MonoBehaviour
     private bool SwitchAndCheck(int column, int row, Vector2 direction)
     {
         SwitchPieces(column, row, direction);
-        if(ChaeckForMatches())
+        if (ChaeckForMatches())
         {
             SwitchPieces(column, row, direction);
             return true;
@@ -316,9 +329,9 @@ public class Board : MonoBehaviour
             {
                 if (dots[i, j] != null)
                 {
-                    if(i < width - 1)
+                    if (i < width - 1)
                     {
-                        if(SwitchAndCheck(i, j, Vector2.right))
+                        if (SwitchAndCheck(i, j, Vector2.right))
                         {
                             return false;
                         }
@@ -377,7 +390,7 @@ public class Board : MonoBehaviour
             }
         }
         // Check if it's still deadlocked
-        if(IsDeadLocked())
+        if (IsDeadLocked())
         {
             ShuffleBoard();
         }

@@ -24,12 +24,17 @@ public class SoundManager : MonoBehaviour
     }
     public void Start()
     {
-        EventManager.onMatchMade += OnMuchMade;
+        EventManager.onMatchMade += OnMatchMade;
+        EventManager.onGameWon += PlayWinSound;
+        EventManager.onGameLost += PlayLoseSound;
+
     }
 
     void OnDestroy()
     {
-        EventManager.onMatchMade -= OnMuchMade;
+        EventManager.onMatchMade -= OnMatchMade;
+        EventManager.onGameWon -= PlayWinSound;
+        EventManager.onGameLost -= PlayLoseSound;
 
     }
 
@@ -44,6 +49,7 @@ public class SoundManager : MonoBehaviour
     public void PlayWinSound()
     {
         soundEffectsSource.PlayOneShot(winSound);
+        
     }
 
     public void PlayLoseSound()
@@ -51,7 +57,7 @@ public class SoundManager : MonoBehaviour
         soundEffectsSource.PlayOneShot(loseSound);
     }
 
-    public void OnMuchMade(int muchMade)
+    public void OnMatchMade(MatchEventData eventData)
     {
         PlayRandomDestroyNoise();
     }
