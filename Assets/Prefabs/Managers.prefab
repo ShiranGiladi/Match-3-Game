@@ -746,7 +746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundEffectsSource: {fileID: 0}
-  destroyNoise: {fileID: 6792233426512929177}
+  destroyNoise: {fileID: 8300000, guid: ce6e45dae1a8e4b4ebfdc9870fd2e36b, type: 3}
   winSound: {fileID: 8300000, guid: 9bef56643da074c2d82fc7b9d4adf134, type: 3}
   loseSound: {fileID: 8300000, guid: dc5ffd994d3584f7ca9472cf2dcf32e3, type: 3}
 --- !u!82 &3597940262737545185
