@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class BackToMainMenu : MonoBehaviour
 {
+    public static bool returnToLevelCanvas = false;
+
     public string sceneToLoad;
     private GameData gameData;
     private Board board;
@@ -55,10 +57,20 @@ public class BackToMainMenu : MonoBehaviour
 
             gameData.Save();
         }
+
+        returnToLevelCanvas = true;
         SceneManager.LoadScene(sceneToLoad);
+        //LoadLevelCanvas();
     }
 
     public void LoseOK()
+    {
+        returnToLevelCanvas = true;
+        SceneManager.LoadScene(sceneToLoad);
+        //LoadLevelCanvas();
+    }
+
+    private void LoadLevelCanvas()
     {
         SceneManager.LoadScene(sceneToLoad);
     }

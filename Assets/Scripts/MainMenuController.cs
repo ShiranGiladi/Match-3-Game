@@ -3,15 +3,35 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
+    public GameObject openScreen;
+    public GameObject levelsCanvas;
+
+    void Start()
+    {
+        if (BackToMainMenu.returnToLevelCanvas)
+        {
+            openScreen.SetActive(false);
+            levelsCanvas.SetActive(true);
+            BackToMainMenu.returnToLevelCanvas = false; // reset
+        }
+        else
+        {
+            openScreen.SetActive(true);
+            levelsCanvas.SetActive(false);
+        }
+    }
+
     // Loads the game scene "play" is clicked
     public void StartGame()
     {
-        SceneManager.LoadScene("GameScene");
+        openScreen.SetActive(false);
+        levelsCanvas.SetActive(true);
     }
 
-    // Returns the main menu scene when "Quit Game" is clicked
-    public void BackToMenu()
+    // Returns the open screen "Home" is clicked
+    public void BackToOpenScreen()
     {
-        SceneManager.LoadScene("MainMenuController");
+        openScreen.SetActive(true);
+        levelsCanvas.SetActive(false);
     }
 }
