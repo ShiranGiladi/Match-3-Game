@@ -5,12 +5,9 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;  // Checks there's only one object
     public AudioSource soundEffectsSource;
-    public AudioSource destroyNoise;
-    public AudioSource backgroundSoundSource;
+    public AudioClip destroyNoise;
     public AudioClip winSound;
-
     public AudioClip loseSound;
-    
 
 
     private void Awake()
@@ -25,12 +22,23 @@ public class SoundManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    public void Start()
+    {
+        EventManager.onMatchMade += OnMuchMade;
+    }
+
+    void OnDestroy()
+    {
+        EventManager.onMatchMade -= OnMuchMade;
+
+    }
+
     public void PlayRandomDestroyNoise()
     {
         // Choose a random number
         // int clipToPlay = Random.Range(0, destroyNoise.Length);
         // Play that clip
-        destroyNoise.Play();
+        soundEffectsSource.PlayOneShot(destroyNoise);
     }
 
     public void PlayWinSound()
@@ -41,6 +49,11 @@ public class SoundManager : MonoBehaviour
     public void PlayLoseSound()
     {
         soundEffectsSource.PlayOneShot(loseSound);
+    }
+
+    public void OnMuchMade(int muchMade)
+    {
+        PlayRandomDestroyNoise();
     }
 
 }
