@@ -22,7 +22,7 @@ MonoBehaviour:
   scoreGoals: 640000009001000058020000
   endLevelRequirements:
     levelType: 0
-    counterValue: 50
+    counterValue: 2
   levelGoals:
   - numberNeeded: 10
     numberCollected: 0

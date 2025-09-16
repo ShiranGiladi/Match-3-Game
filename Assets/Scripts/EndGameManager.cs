@@ -108,10 +108,14 @@ public class EndGameManager : MonoBehaviour
         board.currState = GameState.win;
         currCounterValue = 0;
         counter.text = "" + currCounterValue;
-        if (currentDish != null)
+        if (SoundManager.Instance != null)
         {
-            UIManager.Instance.ShowDishPanel(currentDish);  // Shows the dish 
+            SoundManager.Instance.PlayWinSound();  // Plays the win sound
         }
+        if (currentDish != null)
+            {
+                UIManager.Instance.ShowDishPanel(currentDish);  // Shows the dish 
+            }
     }
 
     public void LoseGame()
@@ -122,6 +126,10 @@ public class EndGameManager : MonoBehaviour
         Debug.Log("You Lose!!");
         currCounterValue = 0;
         counter.text = "" + currCounterValue;
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.PlayLoseSound();
+        }
     }
 
     public void SetStatsPanel()
