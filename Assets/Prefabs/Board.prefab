@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2088236150874897870
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8361516358475420970}
+  - component: {fileID: 7027612764420207072}
+  m_Layer: 0
+  m_Name: Board
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8361516358475420970
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088236150874897870}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 451, y: 1060, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7027612764420207072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088236150874897870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 949699ff14e56fa4e8721986ad288cee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  world: {fileID: 11400000, guid: 422a4ac469f6fc642b0bb48bcf3d4608, type: 2}
+  level: 0
+  currState: 1
+  width: 9
+  height: 9
+  offset: 20
+  tilePrefab: {fileID: 2120925357552006805, guid: 69cc4e2985d539d45991a4e804ab15aa, type: 3}
+  dotsPrefab:
+  - {fileID: 303080720371451666, guid: f3f00036970b64e70a25006f3211ed61, type: 3}
+  - {fileID: 373917123564599981, guid: bfdb8ab37b84e4a30a2d82f766d5110b, type: 3}
+  - {fileID: 7646140563591717672, guid: b812b70a31c134f528d2fd713228b48f, type: 3}
+  - {fileID: 3924688430037414606, guid: 383fe2f6419064039963b8d99460f0c9, type: 3}
+  - {fileID: 1316190040741991596, guid: cccda684875ef455b963988560e4307a, type: 3}
+  - {fileID: 860428448532185626, guid: 9fa7134d034344a2fb1c3ea3131ee7eb, type: 3}
+  streakValue: 1
+  scoreGoals: 
+  refillDeley: 0.5
