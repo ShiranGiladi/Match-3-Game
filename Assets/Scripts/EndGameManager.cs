@@ -118,6 +118,7 @@ public class EndGameManager : MonoBehaviour
     public void WinGame()
     {
         endingState = EndingState.win;
+        EventManager.GameWon();
     }
 
     private void winGamePanel()
@@ -125,10 +126,6 @@ public class EndGameManager : MonoBehaviour
         SetStatsPanel();
         youWinPanel.SetActive(true);
         board.currState = GameState.win;
-        if (SoundManager.Instance != null)
-        {
-            SoundManager.Instance.PlayWinSound();  // Plays the win sound
-        }
         if (currentDish != null)
         {
             UIManager.Instance.ShowDishPanel(currentDish);  // Shows the dish 
@@ -138,6 +135,7 @@ public class EndGameManager : MonoBehaviour
     public void LoseGame()
     {
         endingState = EndingState.lose;
+        EventManager.GameLost();
     }
 
     private void LoseGamePanel()
@@ -145,10 +143,6 @@ public class EndGameManager : MonoBehaviour
         SetStatsPanel();
         tryAgainPanel.SetActive(true);
         board.currState = GameState.lose;
-        if (SoundManager.Instance != null)
-        {
-            SoundManager.Instance.PlayLoseSound();
-        }
     }
 
     public void SetStatsPanel()
