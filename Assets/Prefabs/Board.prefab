@@ -58,6 +58,8 @@ MonoBehaviour:
   - {fileID: 3924688430037414606, guid: 383fe2f6419064039963b8d99460f0c9, type: 3}
   - {fileID: 1316190040741991596, guid: cccda684875ef455b963988560e4307a, type: 3}
   - {fileID: 860428448532185626, guid: 9fa7134d034344a2fb1c3ea3131ee7eb, type: 3}
+  lightTileBackground: {fileID: 3324633975582858615, guid: 139cf7bd294ae2c49a7a7f68385d61b5, type: 3}
+  darkTileBackground: {fileID: -5763805448815284335, guid: 4823b48046eb1a247b2079f224125a12, type: 3}
   streakValue: 1
   scoreGoals: 
   refillDeley: 0.5

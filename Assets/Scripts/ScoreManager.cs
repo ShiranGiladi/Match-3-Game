@@ -14,41 +14,23 @@ public class ScoreManager : MonoBehaviour
     {
         gameData = FindFirstObjectByType<GameData>();
         board = FindFirstObjectByType<Board>();
-        EventManager.onMatchMade += IncreaseScore;
+        //EventManager.onMatchMade += IncreaseScore;
     }
 
-    void OnDestroy()
-    {
-        EventManager.onMatchMade -= IncreaseScore;
-    }
-    public void IncreaseScore(MatchEventData eventData)
-    {
-        //if(gameData != null)
-        //{
-        //    int highScore = gameData.saveData.highScores[board.level];
-        //    if(highScore > score)
-        //    {
-        //        gameData.saveData.highScores[board.level] = score;
-        //    }
-        //    gameData.Save();
-        //}
+    //void OnDestroy()
+    //{
+    //    EventManager.onMatchMade -= IncreaseScore;
+    //}
 
-        score += eventData.matchLength;
-        scoreText.text = score.ToString();
-    }
-        public void IncreaseScore(int Score)
-    {
-        //if(gameData != null)
-        //{
-        //    int highScore = gameData.saveData.highScores[board.level];
-        //    if(highScore > score)
-        //    {
-        //        gameData.saveData.highScores[board.level] = score;
-        //    }
-        //    gameData.Save();
-        //}
+    //public void IncreaseScore(MatchEventData eventData)
+    //{
+    //    score += eventData.matchLength;
+    //    scoreText.text = score.ToString();
+    //}
 
-        score += score;
+    public void IncreaseScore(int scoreToIncrease)
+    {
+        score += scoreToIncrease;
         scoreText.text = score.ToString();
     }
 

@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 [System.Serializable]
@@ -16,7 +17,10 @@ public class GoalManager : MonoBehaviour
     public BlankGoal[] levelGoals;
     public List<GoalPanel> currGoals = new List<GoalPanel>();
     public GameObject goalPrefab;
+    public GameObject goalIntroParent;
     public GameObject goalLevelParent;
+    public TextMeshProUGUI levelNumberText;
+    public TextMeshProUGUI GoalRequirementText;
     private Board board;
     private EndGameManager endGameManager;
 
@@ -31,7 +35,7 @@ public class GoalManager : MonoBehaviour
 
     void GetGoals()
     {
-        if(board != null)
+        if (board != null)
         {
             if(board.world != null && board.world.levels[board.level] != null)
             {
@@ -46,16 +50,39 @@ public class GoalManager : MonoBehaviour
 
     void SetupGoals()
     {
-        for(int i=0; i<levelGoals.Length; i++)
+        if (board != null)
         {
-            // Create a new Goal Panel at the goalLevelParent
-            GameObject goal = Instantiate(goalPrefab, goalLevelParent.transform.position, Quaternion.identity);
-            goal.transform.SetParent(goalLevelParent.transform);
-            // Set the image and the text of the goal
-            GoalPanel panel = goal.GetComponent<GoalPanel>();
-            currGoals.Add(panel);
-            panel.thisSprite = levelGoals[i].goalSprite;
-            panel.thisString = "0/" + levelGoals[i].numberNeeded;
+            levelNumberText.text = "Level " + board.level + 1;
+
+            EndLevelRequirements requirements = board.world.levels[board.level].endLevelRequirements;
+            if (requirements.levelType == LevelType.Moves)
+            {
+                GoalRequirementText.text = requirements.counterValue + " moves";
+            }
+            else
+            {
+                GoalRequirementText.text = requirements.counterValue + " seconds";
+            }
+
+            for (int i = 0; i < levelGoals.Length; i++)
+            {
+                // Create a new Goal Panel at the goalIntroParent
+                GameObject goalIntro = Instantiate(goalPrefab, goalIntroParent.transform.position, Quaternion.identity);
+                goalIntro.transform.SetParent(goalIntroParent.transform);
+                // Set the image and the text of the goal
+                GoalPanel introPanel = goalIntro.GetComponent<GoalPanel>();
+                introPanel.thisSprite = levelGoals[i].goalSprite;
+                introPanel.thisString = "" + levelGoals[i].numberNeeded;
+
+                // Create a new Goal Panel at the goalLevelParent
+                GameObject goal = Instantiate(goalPrefab, goalLevelParent.transform.position, Quaternion.identity);
+                goal.transform.SetParent(goalLevelParent.transform);
+                // Set the image and the text of the goal
+                GoalPanel panel = goal.GetComponent<GoalPanel>();
+                currGoals.Add(panel);
+                panel.thisSprite = levelGoals[i].goalSprite;
+                panel.thisString = "0/" + levelGoals[i].numberNeeded;
+            }
         }
     }
 

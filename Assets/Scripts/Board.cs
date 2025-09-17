@@ -32,6 +32,9 @@ public class Board : MonoBehaviour
     private BackgroundTile[,] tiles;
     public GameObject[,] dots;
 
+    public Sprite lightTileBackground;
+    public Sprite darkTileBackground;
+
     private FindMatches findMatches;
     private int basePieceValue = 20;
     public int streakValue = 1;
@@ -88,11 +91,21 @@ public class Board : MonoBehaviour
             for (int j = 0; j < height; j++)
             {
                 Vector2 position = new Vector2(i, j + offset);
-                GameObject backgroundTile = Instantiate(tilePrefab, position, Quaternion.identity) as GameObject;
+                Vector2 tilePosition = new Vector2(i, j);
+                GameObject backgroundTile = Instantiate(tilePrefab, tilePosition, Quaternion.identity) as GameObject;
                 backgroundTile.transform.parent = this.transform;
                 backgroundTile.name = "(" + i + "," + j + ")";
 
-                int dotToUse = Random.Range(0, dotsPrefab.Length);
+                // Set background
+                SpriteRenderer sr = backgroundTile.GetComponent<SpriteRenderer>();
+                if ((i + j) % 2 == 0) 
+                {
+                    sr.sprite = lightTileBackground;
+                } else {
+                    sr.sprite = darkTileBackground;
+                }
+
+                    int dotToUse = Random.Range(0, dotsPrefab.Length);
                 int maxIterations = 0; // To prevent infinite loop
                 while (MatchesAt(i, j, dotsPrefab[dotToUse]) && maxIterations < 100)
                 {
@@ -131,7 +144,8 @@ public class Board : MonoBehaviour
 
     private void DestroyMatchesAt(int column, int row)
     {
-
+        if (dots[column, row].GetComponent<Dot>().isMatched == true)
+        {
             findMatches.currMatches.Remove(dots[column, row]);
 
             if (goalManager != null)
@@ -143,31 +157,28 @@ public class Board : MonoBehaviour
             scoreManager.IncreaseScore(basePieceValue * streakValue);
             dots[column, row] = null;
 
-
+        }
     }
 
     public void DestroyMatches()
     {
-        string tag = "";
+        //string tag = "";
         for (int i = 0; i < width; i++)
         {
             for (int j = 0; j < height; j++)
             {
                 if (dots[i, j] != null)
                 {
-                    if (dots[i, j].GetComponent<Dot>().isMatched == true)
-                    {
-                        if (tag == "")
-                            tag = dots[i, j].tag.ToString();
+                    //if (dots[i, j].GetComponent<Dot>().isMatched == true)
+                    //{
+                    //    if (tag == "")
+                    //        tag = dots[i, j].tag.ToString();
                         DestroyMatchesAt(i, j);
-                    }
-
-
-
+                    //}
                 }
             }
         }
-        EventManager.MatchMade(new(3, tag));
+        //EventManager.MatchMade(new(3, tag));
         findMatches.currMatches.Clear();
         StartCoroutine(DecreaseRowCo());
     }

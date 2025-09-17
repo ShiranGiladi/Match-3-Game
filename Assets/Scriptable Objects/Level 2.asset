@@ -25,11 +25,11 @@ MonoBehaviour:
     levelType: 1
     counterValue: 90
   levelGoals:
-  - numberNeeded: 15
-    numberCollected: 0
+  - numberNeeded: 5
+    numberCollected: 9
     goalSprite: {fileID: -3962807554240710951, guid: 266e6d1c262e447fd8ca133e395fda7d, type: 3}
     matchValue: Tomato Dot
-  - numberNeeded: 15
-    numberCollected: 0
+  - numberNeeded: 5
+    numberCollected: 6
     goalSprite: {fileID: -5768364531109799046, guid: 404c7c8416ee4453a83c0faa2690d434, type: 3}
     matchValue: Onion Dot
