@@ -326,7 +326,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   scoreText: {fileID: 0}
-  currentDish: {fileID: 0}
+  dishImage: {fileID: 0}
 --- !u!114 &6186425143851544043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,7 +399,10 @@ MonoBehaviour:
     matchValue: Lettuce Dot
   currGoals: []
   goalPrefab: {fileID: 6346982564180029135, guid: e6591886a36a40f4c9aaa52cc97ef6cd, type: 3}
+  goalIntroParent: {fileID: 0}
   goalLevelParent: {fileID: 0}
+  levelNumberText: {fileID: 0}
+  GoalRequirementText: {fileID: 0}
 --- !u!1 &3450263877742710519
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,6 +749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundEffectsSource: {fileID: 0}
+  backgroundSource: {fileID: 4182889981513698320}
   destroyNoise: {fileID: 8300000, guid: ce6e45dae1a8e4b4ebfdc9870fd2e36b, type: 3}
   winSound: {fileID: 8300000, guid: 9bef56643da074c2d82fc7b9d4adf134, type: 3}
   loseSound: {fileID: 8300000, guid: dc5ffd994d3584f7ca9472cf2dcf32e3, type: 3}

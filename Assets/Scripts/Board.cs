@@ -153,6 +153,7 @@ public class Board : MonoBehaviour
                 goalManager.CompareGoal(dots[column, row].tag.ToString());
                 goalManager.UpdateGoals();
             }
+            EventManager.MatchMade(new(3, ""));
             Destroy(dots[column, row]);
             scoreManager.IncreaseScore(basePieceValue * streakValue);
             dots[column, row] = null;

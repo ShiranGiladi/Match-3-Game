@@ -5,6 +5,7 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;  // Checks there's only one object
     public AudioSource soundEffectsSource;
+    public AudioSource backgroundSource;
     public AudioClip destroyNoise;
     public AudioClip winSound;
     public AudioClip loseSound;
@@ -49,7 +50,7 @@ public class SoundManager : MonoBehaviour
     public void PlayWinSound()
     {
         soundEffectsSource.PlayOneShot(winSound);
-        
+        backgroundSource.Stop();
     }
 
     public void PlayLoseSound()
