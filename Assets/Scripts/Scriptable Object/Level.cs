@@ -16,4 +16,6 @@ public class Level : ScriptableObject
     [Header("End Game Requirements")]
     public EndLevelRequirements endLevelRequirements;
     public BlankGoal[] levelGoals;
+
+    public Sprite dishSprite;
 }

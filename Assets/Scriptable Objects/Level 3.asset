@@ -28,3 +28,4 @@ MonoBehaviour:
     numberCollected: 0
     goalSprite: {fileID: -4808505331019995094, guid: d1acc36f4e78c4d8d8ad8b81347a1f72, type: 3}
     matchValue: Sausage Dot
+  dishSprite: {fileID: -1846539361435495348, guid: 4a23a9c1958004c3083c5bf940941110, type: 3}

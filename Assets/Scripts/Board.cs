@@ -105,7 +105,7 @@ public class Board : MonoBehaviour
                     sr.sprite = darkTileBackground;
                 }
 
-                    int dotToUse = Random.Range(0, dotsPrefab.Length);
+                int dotToUse = Random.Range(0, dotsPrefab.Length);
                 int maxIterations = 0; // To prevent infinite loop
                 while (MatchesAt(i, j, dotsPrefab[dotToUse]) && maxIterations < 100)
                 {
