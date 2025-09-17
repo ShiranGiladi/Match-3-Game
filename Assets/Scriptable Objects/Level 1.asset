@@ -25,10 +25,11 @@ MonoBehaviour:
     counterValue: 10
   levelGoals:
   - numberNeeded: 10
-    numberCollected: 0
+    numberCollected: 12
     goalSprite: {fileID: 6234330970754847308, guid: d212717b018e04d54b2f094c2968c7fc, type: 3}
     matchValue: Burger Dot
   - numberNeeded: 10
-    numberCollected: 0
+    numberCollected: 12
     goalSprite: {fileID: 1476140979647752040, guid: 7fd8bf440911a43e8a484470cb431370, type: 3}
     matchValue: Lettuce Dot
+  dishSprite: {fileID: -7483554341461126079, guid: 4b9306eb3cd5944019c5488872874ece, type: 3}

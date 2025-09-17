@@ -33,3 +33,4 @@ MonoBehaviour:
     numberCollected: 6
     goalSprite: {fileID: -5768364531109799046, guid: 404c7c8416ee4453a83c0faa2690d434, type: 3}
     matchValue: Onion Dot
+  dishSprite: {fileID: 126794849063114206, guid: 511687b8ac3a94db99abb0bdbc6cf3f6, type: 3}

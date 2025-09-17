@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.LightTransport;
 using UnityEngine.UI;
 
 public enum LevelType
@@ -41,24 +42,40 @@ public class EndGameManager : MonoBehaviour
     public Image[] stars;
     public TextMeshProUGUI scoreText;
 
-    public Dish currentDish;  
+    //public Dish currentDish;
+    private Sprite dishSprite;
+    public Image dishImage;
+
+    private void Awake()
+    {
+        
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         board = FindFirstObjectByType<Board>();
         scoreManager = FindFirstObjectByType<ScoreManager>();
-        SetGameType();
+        SetGame();
         SetupLevel();
     }
 
-    void SetGameType()
+    // Set game type and dish
+    void SetGame()
     {
         if (board != null)
         {
             if (board.world.levels[board.level] != null)
             {
                 requirements = board.world.levels[board.level].endLevelRequirements;
+            }
+
+            if (board.world != null)
+            {
+                if (board.world.levels[board.level] != null) // Check if that level exists
+                {
+                    dishSprite = board.world.levels[board.level].dishSprite;
+                }
             }
         }
     }
@@ -125,13 +142,10 @@ public class EndGameManager : MonoBehaviour
         SetStatsPanel();
         youWinPanel.SetActive(true);
         board.currState = GameState.win;
+        dishImage.sprite = dishSprite;
         if (SoundManager.Instance != null)
         {
             SoundManager.Instance.PlayWinSound();  // Plays the win sound
-        }
-        if (currentDish != null)
-        {
-            UIManager.Instance.ShowDishPanel(currentDish);  // Shows the dish 
         }
     }
 
