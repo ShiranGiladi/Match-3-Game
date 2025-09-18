@@ -53,7 +53,11 @@ public class GoalManager : MonoBehaviour
     {
         if (board != null)
         {
-            levelNumberText.text = "Level " + board.level + 1;
+            levelNumberText.text = "";
+            int levelText = board.level + 1;
+            levelNumberText.text = "Level " + levelText;
+            Debug.Log(levelNumberText.text);
+            Debug.Log(levelText);
 
             EndLevelRequirements requirements = board.world.levels[board.level].endLevelRequirements;
             if (requirements.levelType == LevelType.Moves)
