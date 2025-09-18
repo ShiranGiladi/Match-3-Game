@@ -19,17 +19,22 @@ MonoBehaviour:
   - {fileID: 3924688430037414606, guid: 383fe2f6419064039963b8d99460f0c9, type: 3}
   - {fileID: 373917123564599981, guid: bfdb8ab37b84e4a30a2d82f766d5110b, type: 3}
   - {fileID: 860428448532185626, guid: 9fa7134d034344a2fb1c3ea3131ee7eb, type: 3}
+  - {fileID: 7646140563591717672, guid: b812b70a31c134f528d2fd713228b48f, type: 3}
   scoreGoals: 64000000
   endLevelRequirements:
     levelType: 0
-    counterValue: 25
+    counterValue: 30
   levelGoals:
   - numberNeeded: 30
     numberCollected: 6
-    goalSprite: {fileID: -5617439152576936621, guid: 182cef55833b547678d6b58857cb9c7f, type: 3}
-    matchValue: Cheese Dot
+    goalSprite: {fileID: 6234330970754847308, guid: d212717b018e04d54b2f094c2968c7fc, type: 3}
+    matchValue: Burger Dot
   - numberNeeded: 30
     numberCollected: 6
     goalSprite: {fileID: -3962807554240710951, guid: 266e6d1c262e447fd8ca133e395fda7d, type: 3}
     matchValue: Tomato Dot
-  dishSprite: {fileID: -6444940296795206775, guid: 007ffc10cf11041fc8ce03a2005dce31, type: 3}
+  - numberNeeded: 30
+    numberCollected: 6
+    goalSprite: {fileID: -5768364531109799046, guid: 404c7c8416ee4453a83c0faa2690d434, type: 3}
+    matchValue: Onion Dot
+  dishSprite: {fileID: 1639456835185363133, guid: bc396ebd956e94ab5a305e1adb0b7be7, type: 3}
