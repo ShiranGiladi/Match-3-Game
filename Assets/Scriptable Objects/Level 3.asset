@@ -15,17 +15,17 @@ MonoBehaviour:
   width: 4
   height: 4
   dotsPrefab:
-  - {fileID: 860428448532185626, guid: d544c6ec36d712847bf0c911205ab4cf, type: 3}
-  - {fileID: 1316190040741991596, guid: 8c866d27e1d60d24c99e67f18310b2ad, type: 3}
-  - {fileID: 3924688430037414606, guid: 37775474db529c44899dd957c37739bd, type: 3}
-  - {fileID: 7646140563591717672, guid: b34afe73dc8d6d94b86766fd617aefa5, type: 3}
+  - {fileID: 1316190040741991596, guid: cccda684875ef455b963988560e4307a, type: 3}
+  - {fileID: 3924688430037414606, guid: 383fe2f6419064039963b8d99460f0c9, type: 3}
+  - {fileID: 7646140563591717672, guid: b812b70a31c134f528d2fd713228b48f, type: 3}
+  - {fileID: 373917123564599981, guid: bfdb8ab37b84e4a30a2d82f766d5110b, type: 3}
   scoreGoals: 64000000
   endLevelRequirements:
     levelType: 0
     counterValue: 15
   levelGoals:
   - numberNeeded: 5
-    numberCollected: 0
+    numberCollected: 6
     goalSprite: {fileID: -4808505331019995094, guid: d1acc36f4e78c4d8d8ad8b81347a1f72, type: 3}
     matchValue: Sausage Dot
   dishSprite: {fileID: -1846539361435495348, guid: 4a23a9c1958004c3083c5bf940941110, type: 3}
