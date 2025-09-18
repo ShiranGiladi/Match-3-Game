@@ -34,10 +34,10 @@ MonoBehaviour:
     matchValue: Lettuce Dot
   - numberNeeded: 10
     numberCollected: 12
-    goalSprite: {fileID: 1476140979647752040, guid: 7fd8bf440911a43e8a484470cb431370, type: 3}
-    matchValue: Lettuce Dot
+    goalSprite: {fileID: -3962807554240710951, guid: 266e6d1c262e447fd8ca133e395fda7d, type: 3}
+    matchValue: Tomato Dot
   - numberNeeded: 10
     numberCollected: 12
-    goalSprite: {fileID: 1476140979647752040, guid: 7fd8bf440911a43e8a484470cb431370, type: 3}
-    matchValue: Lettuce Dot
+    goalSprite: {fileID: -5768364531109799046, guid: 404c7c8416ee4453a83c0faa2690d434, type: 3}
+    matchValue: Onion Dot
   dishSprite: {fileID: -7483554341461126079, guid: 4b9306eb3cd5944019c5488872874ece, type: 3}
