@@ -144,10 +144,7 @@ public class EndGameManager : MonoBehaviour
         board.currState = GameState.win;
         dishImage.sprite = dishSprite;
         if (SoundManager.Instance != null)
-        {
             EventManager.GameWon();
-            //SoundManager.Instance.PlayWinSound();  // Plays the win sound
-        }
     }
 
     public void LoseGame()
@@ -160,10 +157,7 @@ public class EndGameManager : MonoBehaviour
         SetStatsPanel();
         tryAgainPanel.SetActive(true);
         board.currState = GameState.lose;
-        if (SoundManager.Instance != null)
-        {
-            SoundManager.Instance.PlayLoseSound();
-        }
+        EventManager.GameLost();
     }
 
     public void SetStatsPanel()
