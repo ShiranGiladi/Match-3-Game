@@ -68,8 +68,7 @@ public class GoalManager : MonoBehaviour
             for (int i = 0; i < levelGoals.Length; i++)
             {
                 // Create a new Goal Panel at the goalIntroParent
-                GameObject goalIntro = Instantiate(goalPrefab, goalIntroParent.transform.position, Quaternion.identity);
-                goalIntro.transform.SetParent(goalIntroParent.transform);
+                GameObject goalIntro = Instantiate(goalPrefab, goalIntroParent.transform);
                 // Set its background to light orange
                 Image introImage = goalIntro.GetComponent<Image>();
                 introImage.color = new Color(0.937f, 0.706f, 0.412f, 0.471f);
@@ -80,8 +79,7 @@ public class GoalManager : MonoBehaviour
                 introPanel.thisString = "" + levelGoals[i].numberNeeded;
 
                 // Create a new Goal Panel at the goalLevelParent
-                GameObject goal = Instantiate(goalPrefab, goalLevelParent.transform.position, Quaternion.identity);
-                goal.transform.SetParent(goalLevelParent.transform);
+                GameObject goal = Instantiate(goalPrefab, goalLevelParent.transform);
                 // Set the image and the text of the goal
                 GoalPanel panel = goal.GetComponent<GoalPanel>();
                 currGoals.Add(panel);
