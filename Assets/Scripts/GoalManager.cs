@@ -2,6 +2,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class BlankGoal
@@ -69,6 +70,10 @@ public class GoalManager : MonoBehaviour
                 // Create a new Goal Panel at the goalIntroParent
                 GameObject goalIntro = Instantiate(goalPrefab, goalIntroParent.transform.position, Quaternion.identity);
                 goalIntro.transform.SetParent(goalIntroParent.transform);
+                // Set its background to light orange
+                Image introImage = goalIntro.GetComponent<Image>();
+                introImage.color = new Color(0.937f, 0.706f, 0.412f, 0.471f);
+
                 // Set the image and the text of the goal
                 GoalPanel introPanel = goalIntro.GetComponent<GoalPanel>();
                 introPanel.thisSprite = levelGoals[i].goalSprite;
@@ -95,7 +100,8 @@ public class GoalManager : MonoBehaviour
             if(levelGoals[i].numberCollected >= levelGoals[i].numberNeeded)
             {
                 goalsCompleted++;
-                currGoals[i].thisText.color = Color.green;
+                //currGoals[i].thisText.color = Color.green;
+                currGoals[i].DoneMark.gameObject.SetActive(true);
             }
         }
 
