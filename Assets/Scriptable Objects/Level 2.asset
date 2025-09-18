@@ -23,7 +23,7 @@ MonoBehaviour:
   scoreGoals: f4010000e8030000dc050000
   endLevelRequirements:
     levelType: 1
-    counterValue: 90
+    counterValue: 30
   levelGoals:
   - numberNeeded: 5
     numberCollected: 9
@@ -33,4 +33,8 @@ MonoBehaviour:
     numberCollected: 6
     goalSprite: {fileID: -5768364531109799046, guid: 404c7c8416ee4453a83c0faa2690d434, type: 3}
     matchValue: Onion Dot
+  - numberNeeded: 5
+    numberCollected: 6
+    goalSprite: {fileID: 1476140979647752040, guid: 7fd8bf440911a43e8a484470cb431370, type: 3}
+    matchValue: Lettuce Dot
   dishSprite: {fileID: 126794849063114206, guid: 511687b8ac3a94db99abb0bdbc6cf3f6, type: 3}

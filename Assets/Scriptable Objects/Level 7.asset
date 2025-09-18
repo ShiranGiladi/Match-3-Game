@@ -10,31 +10,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41907a32ef484bb458a8f79a4ae536e2, type: 3}
-  m_Name: Level 3
+  m_Name: Level 7
   m_EditorClassIdentifier: 
-  width: 7
-  height: 7
+  width: 8
+  height: 8
   dotsPrefab:
-  - {fileID: 1316190040741991596, guid: cccda684875ef455b963988560e4307a, type: 3}
+  - {fileID: 303080720371451666, guid: f3f00036970b64e70a25006f3211ed61, type: 3}
   - {fileID: 3924688430037414606, guid: 383fe2f6419064039963b8d99460f0c9, type: 3}
-  - {fileID: 7646140563591717672, guid: b812b70a31c134f528d2fd713228b48f, type: 3}
   - {fileID: 373917123564599981, guid: bfdb8ab37b84e4a30a2d82f766d5110b, type: 3}
   - {fileID: 860428448532185626, guid: 9fa7134d034344a2fb1c3ea3131ee7eb, type: 3}
+  - {fileID: 7646140563591717672, guid: b812b70a31c134f528d2fd713228b48f, type: 3}
   scoreGoals: 64000000
   endLevelRequirements:
     levelType: 0
-    counterValue: 20
+    counterValue: 30
   levelGoals:
-  - numberNeeded: 20
+  - numberNeeded: 30
     numberCollected: 6
-    goalSprite: {fileID: -4808505331019995094, guid: d1acc36f4e78c4d8d8ad8b81347a1f72, type: 3}
-    matchValue: Sausage Dot
-  - numberNeeded: 5
+    goalSprite: {fileID: 6234330970754847308, guid: d212717b018e04d54b2f094c2968c7fc, type: 3}
+    matchValue: Burger Dot
+  - numberNeeded: 30
     numberCollected: 6
     goalSprite: {fileID: -3962807554240710951, guid: 266e6d1c262e447fd8ca133e395fda7d, type: 3}
     matchValue: Tomato Dot
-  - numberNeeded: 5
+  - numberNeeded: 30
     numberCollected: 6
-    goalSprite: {fileID: 1476140979647752040, guid: 7fd8bf440911a43e8a484470cb431370, type: 3}
-    matchValue: Lettuce Dot
-  dishSprite: {fileID: -1846539361435495348, guid: 4a23a9c1958004c3083c5bf940941110, type: 3}
+    goalSprite: {fileID: -5768364531109799046, guid: 404c7c8416ee4453a83c0faa2690d434, type: 3}
+    matchValue: Onion Dot
+  dishSprite: {fileID: 1639456835185363133, guid: bc396ebd956e94ab5a305e1adb0b7be7, type: 3}
