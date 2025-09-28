@@ -11,6 +11,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip loseSound;
     public AudioClip menuSound;  // Menu and level screens sound
 
+    public float DestroyVolume = 1;
 
     private void Awake()
     {
@@ -43,7 +44,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlayDestroyNoise()
     {
-        soundEffectsSource.PlayOneShot(destroyNoise);
+        soundEffectsSource.PlayOneShot(destroyNoise, DestroyVolume);
     }
 
     public void PlayWinSound()

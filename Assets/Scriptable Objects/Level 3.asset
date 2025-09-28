@@ -25,7 +25,7 @@ MonoBehaviour:
     levelType: 0
     counterValue: 20
   levelGoals:
-  - numberNeeded: 5
+  - numberNeeded: 20
     numberCollected: 6
     goalSprite: {fileID: -4808505331019995094, guid: d1acc36f4e78c4d8d8ad8b81347a1f72, type: 3}
     matchValue: Sausage Dot

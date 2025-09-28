@@ -753,6 +753,8 @@ MonoBehaviour:
   destroyNoise: {fileID: 8300000, guid: ce6e45dae1a8e4b4ebfdc9870fd2e36b, type: 3}
   winSound: {fileID: 8300000, guid: 9bef56643da074c2d82fc7b9d4adf134, type: 3}
   loseSound: {fileID: 8300000, guid: dc5ffd994d3584f7ca9472cf2dcf32e3, type: 3}
+  menuSound: {fileID: 0}
+  DestroyVolume: 8
 --- !u!82 &3597940262737545185
 AudioSource:
   m_ObjectHideFlags: 0
